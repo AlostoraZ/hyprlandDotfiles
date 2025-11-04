@@ -24,6 +24,18 @@
   "custom/arch": {
     "format": "󰣇",
   },
+    "custom/swaync": {
+    "format": "󰂜",
+    "on-click": "swaync-client -t"
+  },
+  "custom/waybar-media": {
+    "return-type": "json",
+    "exec": "media-player.py status",
+    "on-click": "media-player.py playpause",
+    "on-scroll-up": "media-player.py previous",
+    "on-scroll-down": "media-player.py next",
+    "escape": true
+  },
   "hyprland/workspaces": {
     "format": "{name}",
     "format-icons": {

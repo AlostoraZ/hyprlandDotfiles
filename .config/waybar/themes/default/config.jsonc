@@ -10,18 +10,33 @@
   "modules-left": [
     "custom/arch",
     "clock",
+    "custom/waybar-media",
   ],
-  "modules-center": [    "hyprland/workspaces"
-],
+  "modules-center": [    
+    "hyprland/workspaces"
+  ],
   "modules-right": [
     "pulseaudio",
     "network",
     "backlight",
     "battery",
-    "power-profiles-daemon"
+    "power-profiles-daemon",
+    "custom/swaync"
   ],
   "custom/arch": {
     "format": "󰣇",
+  },
+  "custom/swaync": {
+    "format": "󰂜",
+    "on-click": "swaync-client -t"
+  },
+  "custom/waybar-media": {
+    "return-type": "json",
+    "exec": "media-player.py status",
+    "on-click": "media-player.py playpause",
+    "on-scroll-up": "media-player.py previous",
+    "on-scroll-down": "media-player.py next",
+    "escape": true
   },
   "hyprland/workspaces": {
     "format": "{name}",
