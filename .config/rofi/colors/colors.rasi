@@ -1,0 +1,21 @@
+* {
+    /* Background shades */
+    bg0: #0e1415;
+    bg1: #161d1d;
+    bg2: #1a2121;
+    bg3: #252b2c;
+
+    /* Foreground shades */
+    fg0: #dee4e4;
+    //fg0: #b8c6ea;
+    fg1: #00363b;
+    fg2: #bec8c9;
+    fg3: #3f484a;
+
+    /* Material theme mapping (optional for Waybar modules) */
+    primary: #81d3dd;
+    secondary: #b1cbcf;
+    tertiary: #b8c6ea;
+    error: #ffb4ab;
+    outline: #899294;
+}

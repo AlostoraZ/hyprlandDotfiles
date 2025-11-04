@@ -1,0 +1,117 @@
+@import "/home/alostora/.config/waybar/colors.css";
+
+* {
+    border: none;
+    border-radius: 3;
+    font-family: JetBrainsMonoNerdFontPropo,"OpenSans",FiraCode Nerd Font Propo;
+    font-size: 13px;
+    min-height: 0;
+    margin: 0px 3px 0px 3px;
+}
+
+window#waybar {
+    background: transparent;
+    border-bottom: none;
+    color: #ffffff;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+window#waybar.hidden {
+    opacity: 0.0;
+}
+
+/* #workspaces{ */
+/*   background-color: @surface_container; */
+/*   padding: 4px 2px; */
+/* } */
+/**/
+#workspaces button {
+    transition: 0.2s ease-in-out;
+    /* padding: 0 5px; */
+    background: @surface_bright;
+    color: @inverse_surface;
+}
+
+#workspaces button.focused {
+    background-color: @secondary_fixed;
+}
+
+#workspaces button.urgent {
+    background-color: @error;
+}
+
+#workspaces button.active {
+  background-color: @secondary_fixed;
+  color: @on_secondary_fixed;
+  border-radius: 7px;
+  padding: 0 18px;
+}
+
+#custom-arch,#power-profiles-daemon,#clock, #battery, #cpu, #memory, #temperature, #backlight, #network, #pulseaudio, #custom-media, #tray, #mode, #idle_inhibitor {
+    padding: 0 10px;
+    margin: 0 3px;
+    background-color: @secondary_container;
+    color: @on_secondary_container;
+}
+
+#power-profiles-daemon.performance {
+    background-color: @on_surface;
+    color: @surface;
+}
+
+#power-profiles-daemon.balanced {
+    background-color: @secondary_container;
+    color: @on_secondary_container;
+}
+
+#power-profiles-daemon.power-saver {
+    background-color: @surface_container_highest;
+    color: @on_surface;
+}
+
+#clock {
+    /* background-color: #64727D; */
+}
+
+#battery {
+    /* background-color: #ffffff; */
+    /* color: #000000; */
+}
+
+#battery.charging {
+    /* color: #ffffff; */
+    /* background-color: #26A65B; */
+}
+
+#battery.critical:not(.charging) {
+    background: #f53c3c;
+    color: #ffffff;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#backlight {
+    /* background: #90b1b1; */
+}
+
+#network {
+    /* background: #2980b9; */
+}
+
+#network.disconnected {
+    /* background: #f53c3c; */
+}
+
+#pulseaudio {
+    /* background: #f1c40f; */
+    /* color: #000000; */
+}
+
+#pulseaudio.muted {
+    /* background: #90b1b1; */
+    /* color: #2a5c45; */
+}
