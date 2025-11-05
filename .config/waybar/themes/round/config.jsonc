@@ -24,6 +24,7 @@
 
   "custom/arch": {
     "format": "󰣇",
+    "on-click": "./.config/waybar/scripts/powerMenu.sh",
   },
   "custom/swaync": {
     "format": "󰂜",
