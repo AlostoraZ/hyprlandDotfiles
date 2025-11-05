@@ -108,6 +108,8 @@ source $ZSH/oh-my-zsh.sh
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 
+export PATH="$HOME/.config/waybar/scripts:$PATH"
+export PATH="$HOME/.config/hypr/scripts:$PATH"
 
 #fastfetch -c /usr/share/fastfetch/presets/examples/13.jsonc
 
@@ -117,19 +119,24 @@ alias v='nvim'
 alias ls='ls -a --color=auto'
 alias fft='fastfetch -c Desktop/fftrick/13.jsonc --logo ubuntu'
 alias w='wallset.sh'
+# alias wlogout='wlogout -b 5 -s -C /home/alostora/.config/wlogout/nova.css -l /home/alostora/.config/wlogout/layout'
+alias wlogout='wlogout.sh'
+
+# start conda
+alias conda-init='source ~/miniconda3/etc/profile.d/conda.sh'
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/alostora/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/alostora/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/alostora/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/alostora/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
+# __conda_setup="$('/home/alostora/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+# if [ $? -eq 0 ]; then
+#     eval "$__conda_setup"
+# else
+#     if [ -f "/home/alostora/anaconda3/etc/profile.d/conda.sh" ]; then
+#         . "/home/alostora/anaconda3/etc/profile.d/conda.sh"
+#     else
+#         export PATH="/home/alostora/anaconda3/bin:$PATH"
+#     fi
+# fi
+# unset __conda_setup
 # <<< conda initialize <<<
 
