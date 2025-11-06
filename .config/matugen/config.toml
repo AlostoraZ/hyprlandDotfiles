@@ -34,3 +34,8 @@ output_path = '~/.config/rofi/colors/colors.rasi'
 input_path = '~/.config/matugen/templates/shell.json'
 output_path = '~/.config/matugen/shell/colors.json'
 post_hook = '~/.config/hypr/scripts/keyboradColor.sh'
+
+[templates.kitty]
+input_path = '~/.config/matugen/templates/kitty-colors.conf'
+output_path = '~/.config/kitty/colors.conf'
+post_hook = 'pkill -SIGUSR1 kitty'
