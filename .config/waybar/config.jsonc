@@ -90,7 +90,7 @@
   },
   "network": {
     // "interface": "wlp2*", // (Optional) To force the use of this interface
-    "format-wifi": "{essid}  {icon}",
+    "format-wifi": "{essid} {icon}",
     "format-icons": [
       "󰤯",
       "󰤟",
@@ -101,7 +101,7 @@
     "format-ethernet": "",
     "tooltip-format": "{ipaddr}/{cidr}",
     "format-linked": "{ifname} (No IP) ",
-    "format-disconnected": "󰤭 ",
+    "format-disconnected": "󰤭",
     //"format-alt": "{ifname}: {ipaddr}/{cidr}",
     "on-click": "./.config/hypr/scripts/networkManagerUI.sh"
   },

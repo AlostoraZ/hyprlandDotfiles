@@ -1,0 +1,3 @@
+//@theme "~/.config/rofi/themes/nova-dark.rasi"
+
+@theme "/home/alostora/.local/share/rofi/themes/rounded-template.rasi"

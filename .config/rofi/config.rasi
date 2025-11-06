@@ -1,3 +1,5 @@
+//@theme "/home/alostora/.local/share/rofi/themes/rounded-template.rasi"
+
 configuration {
 	modes: "drun,ssh";
 /*	font: "mono 12";*/
@@ -27,6 +29,7 @@ configuration {
 /*	drun-exclude-categories: ;*/
 /*	drun-show-actions: false;*/
 /*	drun-display-format: "{name} [<span weight='light' size='small'><i>({generic})</i></span>]";*/
+drun-display-format: "{name}";
 /*	drun-url-launcher: "xdg-open";*/
 /*	disable-history: false;*/
 /*	ignored-prefixes: "";*/
@@ -71,7 +74,7 @@ configuration {
 /*	display-window: ;*/
 /*	display-run: ;*/
 /*	display-ssh: ;*/
-	display-drun: "";
+  display-drun:               " ";
 /*	display-combi: ;*/
 /*	display-keys: ;*/
 /*	display-filebrowser: ;*/
@@ -167,4 +170,5 @@ configuration {
   }
 }
 
-@theme "/home/alostora/.local/share/rofi/themes/rounded-template.rasi"
+
+@theme "/home/alostora/.config/rofi/themes/rounded-template.rasi"
