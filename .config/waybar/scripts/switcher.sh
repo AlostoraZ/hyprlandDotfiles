@@ -1,13 +1,22 @@
 #!/bin/zsh
 
-rtheme=$(echo "[top] Default|[top] No Middle|[top] Round default" | rofi -sep '|' -dmenu -p "Waybar")
+input="$1"
 
-case "$rtheme" in
-  "[top] Default") theme="default" ;;
-  "[top] No Middle") theme="noMiddle" ;;
-  "[top] Round default") theme="round" ;;
-  *) theme="cache" ;;
-esac
+if [[ -n $input ]]; then
+  case "$input" in
+    "Square") theme="default" ;;
+    "Round") theme="round" ;;
+    *) theme="cache" ;;
+  esac
+else
+  rtheme=$(echo "[top] Default|[top] No Middle|[top] Round default" | rofi -sep '|' -dmenu -p "Waybar")
+  case "$rtheme" in
+    "[top] Default") theme="default" ;;
+    "[top] No Middle") theme="noMiddle" ;;
+    "[top] Round default" || "Round") theme="round" ;;
+    *) theme="cache" ;;
+  esac
+fi
 
 notify-send "Current waybar theme: $theme" -u "low"
 

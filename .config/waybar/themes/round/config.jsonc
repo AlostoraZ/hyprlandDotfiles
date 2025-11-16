@@ -10,17 +10,37 @@
   "modules-left": [
     "custom/arch",
     "clock",
+    "custom/update",
     "custom/waybar-media",
   ],
   "modules-center": [    "hyprland/workspaces"
 ],
   "modules-right": [
+    "custom/wake",
     "pulseaudio",
     "network",
+    "bluetooth",
     "backlight",
     "battery",
-    "power-profiles-daemon"
+    "power-profiles-daemon",
+    "custom/swaync",
   ],
+
+  "custom/update": {
+    "format": "󰅢 {}",
+    "interval": "once",
+    "exec": "checkupdates-with-aur | wc -l",
+    "on-click": "kitty --title \"update\" --hold yay -Syu --noconfirm",
+    "on-click-right": "kitty --title \"update\" --hold pacseek",
+    "signal": 8,
+    "tooltip-format": "{} updates available",
+  },
+
+  "custom/wake": {
+    "format": "",
+    "format-alt": "󰾪",
+    "on-click": "./.config/hypr/scripts/hypridle-toggle.sh",
+  },
 
   "custom/arch": {
     "format": "󰣇",
@@ -124,6 +144,18 @@
     //"format-alt": "{ifname}: {ipaddr}/{cidr}",
     "on-click": "./.config/hypr/scripts/networkManagerUI.sh"
   },
+
+  "bluetooth": {
+	// "controller": "controller1", // specify the alias of the controller if there are more than 1 on the system
+	"format": " {status}",
+	"format-disabled": "", // an empty format will hide the module
+	"format-connected": " {num_connections} connected",
+	"tooltip-format": "{controller_alias}\t{controller_address}",
+	"tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+	"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+  "on-click": "hyprctl dispatch exec blueman-manager"
+  },
+
   "pulseaudio": {
     // "scroll-step": 1, // %, can be a float
     "format": "{volume}% {icon}",

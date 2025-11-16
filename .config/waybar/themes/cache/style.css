@@ -2,7 +2,7 @@
 
 * {
     border: none;
-    border-radius: 3;
+    border-radius: 25;
     font-family: JetBrainsMonoNerdFontPropo,"OpenSans",FiraCode Nerd Font Propo;
     font-size: 13px;
     min-height: 0;
@@ -44,15 +44,27 @@ window#waybar.hidden {
 #workspaces button.active {
   background-color: @secondary_fixed;
   color: @on_secondary_fixed;
-  border-radius: 7px;
+  border-radius: 25px;
   padding: 0 18px;
 }
 
-#custom-waybar-media,#custom-swaync,#custom-arch,#power-profiles-daemon,#clock, #battery, #cpu, #memory, #temperature, #backlight, #network, #pulseaudio, #custom-media, #tray, #mode, #idle_inhibitor {
+#custom-update,#custom-waybar-media,#custom-swaync,#custom-wake,#custom-arch,#power-profiles-daemon,#clock, #battery, #cpu, #memory, #temperature, #backlight,#bluetooth ,#network, #pulseaudio, #custom-media, #tray, #mode, #idle_inhibitor {
     padding: 0 10px;
     margin: 0 3px;
     background-color: @secondary_container;
     color: @on_secondary_container;
+}
+
+#custom-wake{
+  padding: 0px 12px;
+}
+
+#custom-arch{
+  padding: 0px 12px;
+}
+
+#custom-swaync{
+  padding: 0px 12px;
 }
 
 #power-profiles-daemon.performance {

@@ -113,7 +113,8 @@ export PATH="$HOME/.config/hypr/scripts:$PATH"
 
 #fastfetch -c /usr/share/fastfetch/presets/examples/13.jsonc
 
-alias p='sudo pacman'
+alias p='sudo pacman --color auto'
+alias y='yay --color auto'
 alias ff='fastfetch -c /usr/share/fastfetch/presets/examples/13.jsonc'
 alias v='nvim'
 alias ls='ls -a --color=auto'

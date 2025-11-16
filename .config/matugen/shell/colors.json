@@ -1,8 +1,8 @@
 {
-  "wallpaper": "/home/alostora/wallpaper/planetrise.png",
+  "wallpaper": "/home/alostora/wallpaper/earth-from-space.jpg",
   "alpha": "100",
   "colors": {
-    "color0": "#101417",
+    "color0": "#2275ad",
     "color1": "",
     "color2": "",
     "color3": "",
@@ -12,11 +12,11 @@
     "color7": "",
     "color8": "",
     "color9": "",
-    "color10": "#94cdf6",
+    "color10": "#9acbfa",
     "color11": "",
     "color12": "",
-    "color13": "#353a3e",
+    "color13": "#0a4a72",
     "color14": "",
-    "color15": "#dfe3e7"
+    "color15": "#2d628b"
   }
 }
