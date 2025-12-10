@@ -2,19 +2,22 @@
 
 * {
   border: none;
-  /* border-radius: 3; */
-  font-family:  "BigBlueTermPlus Nerd Font Propo",JetBrainsMonoNerdFontPropo, "OpenSans", FiraCode Nerd Font Propo;
+  border-radius: 0;
+  font-family: JetBrainsMonoNerdFontPropo, "OpenSans", FiraCode Nerd Font Propo;
   font-size: 13px;
-  min-height: 0;
-  /* margin: 0px 3px 0px 3px; */
+  min-height: 13px;
+  /* margin-top: 0px; */
+  margin: 0px 3px 0px 3px;
 }
 
 window#waybar {
-  background: transparent;
+  /* background: ; */
+  background-color: @secondary_container;
   border-bottom: none;
   color: #ffffff;
   transition-property: background-color;
   transition-duration: .5s;
+  margin-top: 0px;
 }
 
 window#waybar.hidden {
@@ -24,14 +27,12 @@ window#waybar.hidden {
 #workspaces {
   background-color: @secondary_container;
   padding: 4px 2px;
-  border-radius: 3;
 }
 
 #workspaces button {
   transition: 0.2s ease-in-out;
   background: @secondary_container;
-  color: @on_secondary_container;
-  margin: 0 3;
+  color: @inverse_surface;
 }
 
 #workspaces button.focused {
@@ -49,7 +50,6 @@ window#waybar.hidden {
   padding: 0 18px;
 }
 
-#custom-pipe,
 #custom-prayerTime,
 #custom-update,
 #custom-waybar-media,
@@ -76,49 +76,12 @@ window#waybar.hidden {
   color: @on_secondary_container;
 }
 
-#power-profiles-daemon {
-  padding: 0px 12px;
-  /* margin: 0 0 0 3; */
-  /* border-top-right-radius: 0px; */
-  /* border-bottom-right-radius: 0px; */
-}
-
 #custom-wake {
   padding: 0px 12px;
-  /* margin: 0 0; */
-  /* border-radius: 0; */
-}
-
-#custom-update {
-  border-top-left-radius: 3;
-  border-bottom-left-radius: 3;
-
-}
-
-#custom-swaync {
-  padding: 0px 12px;
-  /* margin: 0 3 0 0; */
-  /* border-top-left-radius: 0px; */
-  /* border-bottom-left-radius: 0px; */
-  border-top-right-radius: 3;
-  border-bottom-right-radius: 3;
-}
-
-#custom-pipe {
-  padding: 0px 0px;
-  /* margin: 0 0; */
-  /* border-radius: 0; */
 }
 
 #custom-arch {
   padding: 0px 12px;
-  border-top-left-radius: 3;
-  border-bottom-left-radius: 3;
-}
-
-#custom-prayerTime {
-  border-top-right-radius: 3;
-  border-bottom-right-radius: 3;
 }
 
 #power-profiles-daemon.performance {

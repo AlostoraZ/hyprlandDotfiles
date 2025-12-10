@@ -7,15 +7,16 @@
   "margin-top": 10,
   //"spacing": 4, // Gaps between modules (4px)
   // Choose the order of the modules
-  "modules-left": [
+"modules-left": [
     "custom/arch",
     "clock",
-    "custom/update",
-    "custom/waybar-media",
+    "custom/prayerTime",
   ],
-  "modules-center": [    "hyprland/workspaces"
-],
+  "modules-center": [    
+    "hyprland/workspaces"
+  ],
   "modules-right": [
+    "custom/update",
     "custom/wake",
     "pulseaudio",
     "network",
@@ -23,8 +24,15 @@
     "backlight",
     "battery",
     "power-profiles-daemon",
-    "custom/swaync",
+    "custom/swaync"
   ],
+
+  "custom/prayerTime": {
+    "format": "{}",
+    "exec": "~/.config/waybar/scripts/prayerTimes.py",
+    "interval": 60,
+    "escape": true
+  },
 
   "custom/update": {
     "format": "󰅢 {}",
@@ -46,18 +54,22 @@
     "format": "󰣇",
     "on-click": "./.config/waybar/scripts/powerMenu.sh",
   },
+
   "custom/swaync": {
     "format": "󰂜",
     "on-click": "swaync-client -t"
   },
+
   "custom/waybar-media": {
     "return-type": "json",
     "exec": "media-player.py status",
     "on-click": "media-player.py playpause",
     "on-scroll-up": "media-player.py previous",
     "on-scroll-down": "media-player.py next",
+    "max-length": 15,
     "escape": true
   },
+
   "hyprland/workspaces": {
     "format": "{name}",
     "format-icons": {

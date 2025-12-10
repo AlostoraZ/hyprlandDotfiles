@@ -14,6 +14,8 @@
   "modules-center": [    
 ],
   "modules-right": [
+    "custom/update",
+    "custom/wake",
     "pulseaudio",
     "network",
     "bluetooth",
@@ -35,6 +37,7 @@
 
   "custom/wake": {
     "format": "",
+    "format-alt": "󰾪",
     "on-click": "./.config/hypr/scripts/hypridle-toggle.sh",
   },
 

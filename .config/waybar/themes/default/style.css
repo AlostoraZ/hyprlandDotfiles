@@ -1,126 +1,183 @@
 @import "/home/alostora/.config/waybar/colors.css";
 
 * {
-    border: none;
-    border-radius: 3;
-    font-family: JetBrainsMonoNerdFontPropo,"OpenSans",FiraCode Nerd Font Propo;
-    font-size: 13px;
-    min-height: 0;
-    margin: 0px 3px 0px 3px;
+  border: none;
+  /* border-radius: 3; */
+  font-family:  "BigBlueTermPlus Nerd Font Propo",JetBrainsMonoNerdFontPropo, "OpenSans", FiraCode Nerd Font Propo;
+  font-size: 13px;
+  min-height: 0;
+  /* margin: 0px 3px 0px 3px; */
 }
 
 window#waybar {
-    background: transparent;
-    border-bottom: none;
-    color: #ffffff;
-    transition-property: background-color;
-    transition-duration: .5s;
+  background: transparent;
+  border-bottom: none;
+  color: #ffffff;
+  transition-property: background-color;
+  transition-duration: .5s;
 }
 
 window#waybar.hidden {
-    opacity: 0.0;
+  opacity: 0.0;
 }
 
-#workspaces{
-  background-color: @surface_container;
+#workspaces {
+  background-color: @secondary_container;
   padding: 4px 2px;
+  border-radius: 3;
 }
 
 #workspaces button {
-    transition: 0.2s ease-in-out;
-    /* padding: 0 5px; */
-    background: @surface_bright;
-    color: @inverse_surface;
+  transition: 0.2s ease-in-out;
+  background: @secondary_container;
+  color: @on_secondary_container;
+  margin: 0 3;
 }
 
 #workspaces button.focused {
-    background-color: @secondary_fixed;
+  background-color: @secondary_fixed;
 }
 
 #workspaces button.urgent {
-    background-color: @error;
+  background-color: @error;
 }
 
 #workspaces button.active {
   background-color: @secondary_fixed;
   color: @on_secondary_fixed;
-  border-radius: 7px;
+  border-radius: 5px;
   padding: 0 18px;
 }
 
-#custom-update,#custom-waybar-media,#custom-swaync,#custom-wake,#custom-arch,#power-profiles-daemon,#clock, #battery, #cpu, #memory, #temperature, #backlight,#bluetooth ,#network, #pulseaudio, #custom-media, #tray, #mode, #idle_inhibitor {
-    padding: 0 10px;
-    margin: 0 3px;
-    background-color: @secondary_container;
-    color: @on_secondary_container;
+#custom-pipe,
+#custom-prayerTime,
+#custom-update,
+#custom-waybar-media,
+#custom-swaync,
+#custom-wake,
+#custom-arch,
+#power-profiles-daemon,
+#clock,
+#battery,
+#cpu,
+#memory,
+#temperature,
+#backlight,
+#bluetooth,
+#network,
+#pulseaudio,
+#custom-media,
+#tray,
+#mode,
+#idle_inhibitor {
+  padding: 0 10px;
+  /* margin: 0 3px; */
+  background-color: @secondary_container;
+  color: @on_secondary_container;
 }
 
-#custom-wake{
+#power-profiles-daemon {
   padding: 0px 12px;
+  /* margin: 0 0 0 3; */
+  /* border-top-right-radius: 0px; */
+  /* border-bottom-right-radius: 0px; */
 }
 
-#custom-arch{
+#custom-wake {
   padding: 0px 12px;
+  /* margin: 0 0; */
+  /* border-radius: 0; */
+}
+
+#custom-update {
+  border-top-left-radius: 3;
+  border-bottom-left-radius: 3;
+
+}
+
+#custom-swaync {
+  padding: 0px 12px;
+  /* margin: 0 3 0 0; */
+  /* border-top-left-radius: 0px; */
+  /* border-bottom-left-radius: 0px; */
+  border-top-right-radius: 3;
+  border-bottom-right-radius: 3;
+}
+
+#custom-pipe {
+  padding: 0px 0px;
+  /* margin: 0 0; */
+  /* border-radius: 0; */
+}
+
+#custom-arch {
+  padding: 0px 12px;
+  border-top-left-radius: 3;
+  border-bottom-left-radius: 3;
+}
+
+#custom-prayerTime {
+  border-top-right-radius: 3;
+  border-bottom-right-radius: 3;
 }
 
 #power-profiles-daemon.performance {
-    background-color: @on_surface;
-    color: @surface;
+  background-color: @on_surface;
+  color: @surface;
 }
 
 #power-profiles-daemon.balanced {
-    background-color: @secondary_container;
-    color: @on_secondary_container;
+  background-color: @secondary_container;
+  color: @on_secondary_container;
 }
 
 #power-profiles-daemon.power-saver {
-    background-color: @surface_container_highest;
-    color: @on_surface;
+  background-color: @surface_container_highest;
+  color: @on_surface;
 }
 
 #clock {
-    /* background-color: #64727D; */
+  /* background-color: #64727D; */
 }
 
 #battery {
-    /* background-color: #ffffff; */
-    /* color: #000000; */
+  /* background-color: #ffffff; */
+  /* color: #000000; */
 }
 
 #battery.charging {
-    /* color: #ffffff; */
-    /* background-color: #26A65B; */
+  /* color: #ffffff; */
+  /* background-color: #26A65B; */
 }
 
 #battery.critical:not(.charging) {
-    background: #f53c3c;
-    color: #ffffff;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+  background: #f53c3c;
+  color: #ffffff;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
 #backlight {
-    /* background: #90b1b1; */
+  /* background: #90b1b1; */
 }
 
 #network {
-    /* background: #2980b9; */
+  /* background: #2980b9; */
 }
 
 #network.disconnected {
-    /* background: #f53c3c; */
+  /* background: #f53c3c; */
 }
 
 #pulseaudio {
-    /* background: #f1c40f; */
-    /* color: #000000; */
+  /* background: #f1c40f; */
+  /* color: #000000; */
 }
 
 #pulseaudio.muted {
-    /* background: #90b1b1; */
-    /* color: #2a5c45; */
+  /* background: #90b1b1; */
+  /* color: #2a5c45; */
 }
-

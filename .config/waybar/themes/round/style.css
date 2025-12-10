@@ -48,7 +48,7 @@ window#waybar.hidden {
   padding: 0 18px;
 }
 
-#custom-update,#custom-waybar-media,#custom-swaync,#custom-wake,#custom-arch,#power-profiles-daemon,#clock, #battery, #cpu, #memory, #temperature, #backlight,#bluetooth ,#network, #pulseaudio, #custom-media, #tray, #mode, #idle_inhibitor {
+#custom-prayerTime,#custom-update,#custom-waybar-media,#custom-swaync,#custom-wake,#custom-arch,#power-profiles-daemon,#clock, #battery, #cpu, #memory, #temperature, #backlight,#bluetooth ,#network, #pulseaudio, #custom-media, #tray, #mode, #idle_inhibitor {
     padding: 0 10px;
     margin: 0 3px;
     background-color: @secondary_container;

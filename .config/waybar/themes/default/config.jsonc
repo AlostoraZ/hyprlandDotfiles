@@ -1,30 +1,54 @@
 // -*- mode: jsonc -*-
 {
+  "name": "default",
   // "layer": "top", // Waybar at top layer
   // "position": "bottom", // Waybar position (top|bottom|left|right)
   "height": 30, // Waybar height (to be removed for auto height)
   // "width": 1280, // Waybar width
   "margin-top": 10,
+  "margin-right": 9,
+  "margin-left": 9,
   //"spacing": 4, // Gaps between modules (4px)
   // Choose the order of the modules
   "modules-left": [
     "custom/arch",
+    "custom/pipe",
     "clock",
-    "custom/waybar-media",
+    "custom/pipe",
+    "custom/prayerTime",
   ],
   "modules-center": [    
     "hyprland/workspaces"
   ],
   "modules-right": [
-    "custom/wake",
+    "custom/update",
+    "custom/pipe",
     "pulseaudio",
+    "custom/pipe",
     "network",
     "bluetooth",
+    "custom/pipe",
     "backlight",
+    "custom/pipe",
     "battery",
+    "custom/pipe",
     "power-profiles-daemon",
-    "custom/swaync"
+    "custom/pipe",
+    "custom/wake",
+    "custom/pipe",
+    "custom/swaync",
   ],
+
+  "custom/pipe": {
+    "format": "|"
+  },
+
+  "custom/prayerTime": {
+    "format": "{}",
+    "exec": "~/.config/waybar/scripts/prayerTimes.py",
+    "interval": 60,
+    "escape": true
+  },
 
   "custom/update": {
     "format": "󰅢 {}",
@@ -39,6 +63,7 @@
 
   "custom/wake": {
     "format": "",
+    "format-alt": "󰾪",
     "on-click": "./.config/hypr/scripts/hypridle-toggle.sh",
   },
 
@@ -50,7 +75,8 @@
     "format": "󰂜",
     "on-click": "swaync-client -t"
   },
-  "custom/waybar-media": {
+
+ "custom/waybar-media": {
     "return-type": "json",
     "exec": "media-player.py status",
     "on-click": "media-player.py playpause",
@@ -58,6 +84,7 @@
     "on-scroll-down": "media-player.py next",
     "escape": true
   },
+
   "hyprland/workspaces": {
     "format": "{name}",
     "format-icons": {
@@ -147,9 +174,9 @@
 
   "bluetooth": {
 	// "controller": "controller1", // specify the alias of the controller if there are more than 1 on the system
-	"format": " {status}",
+	"format": "|  {status}",
 	"format-disabled": "", // an empty format will hide the module
-	"format-connected": " {num_connections} connected",
+	"format-connected": "|  {num_connections} connected",
 	"tooltip-format": "{controller_alias}\t{controller_address}",
 	"tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
 	"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
@@ -159,8 +186,8 @@
   "pulseaudio": {
     // "scroll-step": 1, // %, can be a float
     "format": "{volume}% {icon}",
-    "format-bluetooth": "{volume}% {icon} ",
-    "format-bluetooth-muted": " {icon} ",
+    "format-bluetooth": "{volume}% {icon}",
+    "format-bluetooth-muted": " {icon}",
     "format-muted": "",
     "format-source-muted": "",
     "format-icons": {
@@ -177,5 +204,14 @@
       ]
     },
     "on-click": "pavucontrol"
-  }
+  },
+
+  "tray": {
+    "icon-size": 21,
+    // "spacing": 10,
+    "icons": {
+        "blueman": "bluetooth",
+        // "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
+    }
+  },
 }

@@ -9,11 +9,12 @@ if [[ -n $input ]]; then
     *) theme="cache" ;;
   esac
 else
-  rtheme=$(echo "[top] Default|[top] No Middle|[top] Round default" | rofi -sep '|' -dmenu -p "Waybar")
+  rtheme=$(echo "[top] Default|[top] No Middle|[top] Round default|[top] oneBar" | rofi -sep '|' -dmenu -p "Waybar")
   case "$rtheme" in
     "[top] Default") theme="default" ;;
     "[top] No Middle") theme="noMiddle" ;;
     "[top] Round default" || "Round") theme="round" ;;
+    "[top] oneBar") theme="oneBar" ;;
     *) theme="cache" ;;
   esac
 fi

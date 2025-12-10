@@ -8,3 +8,4 @@ color="${color#'#'}"
 # echo "the color input $color"
 
 asusctl aura static -c "$color"
+asusctl -k low
