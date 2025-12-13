@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/env sh
 
 TMP_FILE="$XDG_RUNTIME_DIR/hyprland-show-desktop"
 

@@ -32,6 +32,10 @@
     "custom/pipe",
     "battery",
     "custom/pipe",
+    "cpu",
+    "custom/pipe",
+    "memory",
+    "custom/pipe",
     "power-profiles-daemon",
     "custom/pipe",
     "custom/wake",
@@ -45,7 +49,7 @@
 
   "custom/prayerTime": {
     "format": "{}",
-    "exec": "~/.config/waybar/scripts/prayerTimes.py",
+    "exec": "/home/alostora/.config/waybar/scripts/prayerTimes.py",
     "interval": 60,
     "escape": true
   },
@@ -64,12 +68,12 @@
   "custom/wake": {
     "format": "",
     "format-alt": "󰾪",
-    "on-click": "./.config/hypr/scripts/hypridle-toggle.sh",
+    "on-click": "$HOME/.config/hypr/scripts/hypridle-toggle.sh",
   },
 
   "custom/arch": {
     "format": "󰣇",
-    "on-click": "./.config/waybar/scripts/powerMenu.sh",
+    "on-click": "$HOME/.config/waybar/scripts/powerMenu.sh",
   },
   "custom/swaync": {
     "format": "󰂜",
@@ -213,5 +217,17 @@
         "blueman": "bluetooth",
         // "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
     }
+  },
+
+  "cpu": {
+    "interval": 10,
+    "format": "{}% ",
+    "max-length": 10
+  },
+
+  "memory": {
+    "interval": 30,
+    "format": "{}% ",
+    "max-length": 10
   },
 }
