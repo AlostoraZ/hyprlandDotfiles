@@ -26,6 +26,7 @@
     "pulseaudio",
     "custom/pipe",
     "network",
+    // "custom/pipe",
     "bluetooth",
     "custom/pipe",
     "backlight",
@@ -58,7 +59,7 @@
     "format": "󰅢 {}",
     "interval": "once",
     "exec": "checkupdates-with-aur | wc -l",
-    "on-click": "kitty --title \"update\" --hold yay -Syu --noconfirm",
+    "on-click": "kitty --title \"update\" --hold yay -Syu --noconfirm --needed",
     "on-click-right": "kitty --title \"update\" --hold pacseek",
     "signal": 8,
     "tooltip-format": "{} updates available",
@@ -179,7 +180,7 @@
   "bluetooth": {
 	// "controller": "controller1", // specify the alias of the controller if there are more than 1 on the system
 	"format": "|  {status}",
-	"format-disabled": "", // an empty format will hide the module
+	"format-disabled": "", //"󰂲", // an empty format will hide the module
 	"format-connected": "|  {num_connections} connected",
 	"tooltip-format": "{controller_alias}\t{controller_address}",
 	"tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
@@ -222,12 +223,14 @@
   "cpu": {
     "interval": 10,
     "format": "{}% ",
-    "max-length": 10
+    "max-length": 10,
+    "on-click": "kitty --title \"bpytop\" --hold bpytop"
   },
 
   "memory": {
     "interval": 30,
     "format": "{}% ",
-    "max-length": 10
+    "max-length": 10,
+    "on-click": "kitty --title \"bpytop\" --hold bpytop"
   },
 }

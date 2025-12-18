@@ -3,7 +3,7 @@
 * {
   border: none;
   border-radius: 0;
-  font-family: JetBrainsMonoNerdFontPropo, "OpenSans", FiraCode Nerd Font Propo;
+  font-family:  "BigBlueTermPlus Nerd Font Propo",JetBrainsMonoNerdFontPropo, "OpenSans", FiraCode Nerd Font Propo;
   font-size: 13px;
   min-height: 13px;
   /* margin-top: 0px; */
@@ -17,7 +17,6 @@ window#waybar {
   color: #ffffff;
   transition-property: background-color;
   transition-duration: .5s;
-  margin-top: 0px;
 }
 
 window#waybar.hidden {
@@ -27,6 +26,7 @@ window#waybar.hidden {
 #workspaces {
   background-color: @secondary_container;
   padding: 4px 2px;
+  margin: 3 0
 }
 
 #workspaces button {
@@ -50,6 +50,7 @@ window#waybar.hidden {
   padding: 0 18px;
 }
 
+#custom-pipe,
 #custom-prayerTime,
 #custom-update,
 #custom-waybar-media,
@@ -70,19 +71,24 @@ window#waybar.hidden {
 #tray,
 #mode,
 #idle_inhibitor {
-  padding: 0 10px;
+  padding: 0 3px;
   /* margin: 0 3px; */
   background-color: @secondary_container;
   color: @on_secondary_container;
 }
 
 #custom-wake {
-  padding: 0px 12px;
+  padding: 0px 4px;
 }
 
 #custom-arch {
-  padding: 0px 12px;
+  padding: 0px 4px;
 }
+
+#custom-swaync {
+  padding: 0px 4px;
+}
+
 
 #power-profiles-daemon.performance {
   background-color: @on_surface;

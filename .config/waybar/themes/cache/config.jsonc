@@ -1,14 +1,11 @@
 // -*- mode: jsonc -*-
 {
-  "name": "default",
   // "layer": "top", // Waybar at top layer
   // "position": "bottom", // Waybar position (top|bottom|left|right)
   "height": 30, // Waybar height (to be removed for auto height)
   // "width": 1280, // Waybar width
-  "margin-top": 10,
-  "margin-right": 9,
-  "margin-left": 9,
-  //"spacing": 4, // Gaps between modules (4px)
+  "margin-top": 0,
+  "spacing": 0, // Gaps between modules (4px)
   // Choose the order of the modules
   "modules-left": [
     "custom/arch",
@@ -26,6 +23,7 @@
     "pulseaudio",
     "custom/pipe",
     "network",
+    // "custom/pipe",
     "bluetooth",
     "custom/pipe",
     "backlight",
@@ -44,12 +42,12 @@
   ],
 
   "custom/pipe": {
-    "format": "|"
+    "format": "|",
   },
 
   "custom/prayerTime": {
     "format": "{}",
-    "exec": "/home/alostora/.config/waybar/scripts/prayerTimes.py",
+    "exec": "~/.config/waybar/scripts/prayerTimes.py",
     "interval": 60,
     "escape": true
   },
@@ -68,12 +66,12 @@
   "custom/wake": {
     "format": "",
     "format-alt": "󰾪",
-    "on-click": "$HOME/.config/hypr/scripts/hypridle-toggle.sh",
+    "on-click": "./.config/hypr/scripts/hypridle-toggle.sh",
   },
 
   "custom/arch": {
     "format": "󰣇",
-    "on-click": "$HOME/.config/waybar/scripts/powerMenu.sh",
+    "on-click": "./.config/waybar/scripts/powerMenu.sh",
   },
   "custom/swaync": {
     "format": "󰂜",
@@ -179,7 +177,7 @@
   "bluetooth": {
 	// "controller": "controller1", // specify the alias of the controller if there are more than 1 on the system
 	"format": "|  {status}",
-	"format-disabled": "", // an empty format will hide the module
+	"format-disabled": "", //"󰂲", // an empty format will hide the module
 	"format-connected": "|  {num_connections} connected",
 	"tooltip-format": "{controller_alias}\t{controller_address}",
 	"tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
@@ -190,8 +188,8 @@
   "pulseaudio": {
     // "scroll-step": 1, // %, can be a float
     "format": "{volume}% {icon}",
-    "format-bluetooth": "{volume}% {icon}",
-    "format-bluetooth-muted": " {icon}",
+    "format-bluetooth": "{volume}% {icon} ",
+    "format-bluetooth-muted": " {icon} ",
     "format-muted": "",
     "format-source-muted": "",
     "format-icons": {
@@ -210,7 +208,7 @@
     "on-click": "pavucontrol"
   },
 
-  "tray": {
+    "tray": {
     "icon-size": 21,
     // "spacing": 10,
     "icons": {
@@ -222,12 +220,14 @@
   "cpu": {
     "interval": 10,
     "format": "{}% ",
-    "max-length": 10
+    "max-length": 10,
+    "on-click": "kitty --title \"bpytop\" --hold bpytop"
   },
 
   "memory": {
     "interval": 30,
     "format": "{}% ",
-    "max-length": 10
+    "max-length": 10,
+    "on-click": "kitty --title \"bpytop\" --hold bpytop"
   },
 }

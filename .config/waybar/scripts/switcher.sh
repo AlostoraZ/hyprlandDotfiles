@@ -13,7 +13,7 @@ else
   case "$rtheme" in
     "[top] Default") theme="default" ;;
     "[top] No Middle") theme="noMiddle" ;;
-    "[top] Round default" || "Round") theme="round" ;;
+    "[top] Round default") theme="round" ;;
     "[top] oneBar") theme="oneBar" ;;
     *) theme="cache" ;;
   esac

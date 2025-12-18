@@ -5,7 +5,7 @@
   "height": 30, // Waybar height (to be removed for auto height)
   // "width": 1280, // Waybar width
   "margin-top": 0,
-  //"spacing": 4, // Gaps between modules (4px)
+  "spacing": 0, // Gaps between modules (4px)
   // Choose the order of the modules
   "modules-left": [
     "custom/arch",
@@ -20,20 +20,25 @@
   "modules-right": [
     "custom/update",
     "custom/pipe",
-    "custom/wake",
-    "custom/pipe",
     "pulseaudio",
     "custom/pipe",
     "network",
-    "custom/pipe",
+    // "custom/pipe",
     "bluetooth",
+    "custom/pipe",
     "backlight",
     "custom/pipe",
     "battery",
     "custom/pipe",
+    "cpu",
+    "custom/pipe",
+    "memory",
+    "custom/pipe",
     "power-profiles-daemon",
     "custom/pipe",
-    "custom/swaync"
+    "custom/wake",
+    "custom/pipe",
+    "custom/swaync",
   ],
 
   "custom/pipe": {
@@ -171,9 +176,9 @@
 
   "bluetooth": {
 	// "controller": "controller1", // specify the alias of the controller if there are more than 1 on the system
-	"format": " {status}",
-	"format-disabled": "", // an empty format will hide the module
-	"format-connected": " {num_connections} connected",
+	"format": "|  {status}",
+	"format-disabled": "", //"󰂲", // an empty format will hide the module
+	"format-connected": "|  {num_connections} connected",
 	"tooltip-format": "{controller_alias}\t{controller_address}",
 	"tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
 	"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
@@ -201,5 +206,28 @@
       ]
     },
     "on-click": "pavucontrol"
-  }
+  },
+
+    "tray": {
+    "icon-size": 21,
+    // "spacing": 10,
+    "icons": {
+        "blueman": "bluetooth",
+        // "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
+    }
+  },
+
+  "cpu": {
+    "interval": 10,
+    "format": "{}% ",
+    "max-length": 10,
+    "on-click": "kitty --title \"bpytop\" --hold bpytop"
+  },
+
+  "memory": {
+    "interval": 30,
+    "format": "{}% ",
+    "max-length": 10,
+    "on-click": "kitty --title \"bpytop\" --hold bpytop"
+  },
 }
