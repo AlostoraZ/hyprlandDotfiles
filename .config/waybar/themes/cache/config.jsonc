@@ -1,11 +1,14 @@
 // -*- mode: jsonc -*-
 {
+  "name": "default",
   // "layer": "top", // Waybar at top layer
   // "position": "bottom", // Waybar position (top|bottom|left|right)
   "height": 30, // Waybar height (to be removed for auto height)
   // "width": 1280, // Waybar width
-  "margin-top": 0,
-  "spacing": 0, // Gaps between modules (4px)
+  "margin-top": 10,
+  "margin-right": 9,
+  "margin-left": 9,
+  //"spacing": 4, // Gaps between modules (4px)
   // Choose the order of the modules
   "modules-left": [
     "custom/arch",
@@ -13,6 +16,7 @@
     "clock",
     "custom/pipe",
     "custom/prayerTime",
+    "tray",
   ],
   "modules-center": [    
     "hyprland/workspaces"
@@ -42,12 +46,12 @@
   ],
 
   "custom/pipe": {
-    "format": "|",
+    "format": "|"
   },
 
   "custom/prayerTime": {
     "format": "{}",
-    "exec": "~/.config/waybar/scripts/prayerTimes.py",
+    "exec": "$HOME/.config/waybar/scripts/prayerTimes.py",
     "interval": 60,
     "escape": true
   },
@@ -56,7 +60,7 @@
     "format": "󰅢 {}",
     "interval": "once",
     "exec": "checkupdates-with-aur | wc -l",
-    "on-click": "kitty --title \"update\" --hold yay -Syu --noconfirm",
+    "on-click": "kitty --title \"update\" --hold yay -Syu --noconfirm --needed",
     "on-click-right": "kitty --title \"update\" --hold pacseek",
     "signal": 8,
     "tooltip-format": "{} updates available",
@@ -66,12 +70,12 @@
   "custom/wake": {
     "format": "",
     "format-alt": "󰾪",
-    "on-click": "./.config/hypr/scripts/hypridle-toggle.sh",
+    "on-click": "$HOME/.config/hypr/scripts/hypridle-toggle.sh",
   },
 
   "custom/arch": {
     "format": "󰣇",
-    "on-click": "./.config/waybar/scripts/powerMenu.sh",
+    "on-click": "$HOME/.config/waybar/scripts/powerMenu.sh",
   },
   "custom/swaync": {
     "format": "󰂜",
@@ -188,8 +192,8 @@
   "pulseaudio": {
     // "scroll-step": 1, // %, can be a float
     "format": "{volume}% {icon}",
-    "format-bluetooth": "{volume}% {icon} ",
-    "format-bluetooth-muted": " {icon} ",
+    "format-bluetooth": "{volume}% {icon}",
+    "format-bluetooth-muted": " {icon}",
     "format-muted": "",
     "format-source-muted": "",
     "format-icons": {
@@ -208,12 +212,13 @@
     "on-click": "pavucontrol"
   },
 
-    "tray": {
-    "icon-size": 21,
-    // "spacing": 10,
+  "tray": {
+    "icon-size": 15,
+    "spacing": 2,
     "icons": {
         "blueman": "bluetooth",
         // "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
+        "vesktop": "$HOME/.config/waybar/trayIcons/discord.jpeg",
     }
   },
 

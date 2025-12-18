@@ -16,6 +16,7 @@
     "clock",
     "custom/pipe",
     "custom/prayerTime",
+    "tray",
   ],
   "modules-center": [    
     "hyprland/workspaces"
@@ -50,7 +51,7 @@
 
   "custom/prayerTime": {
     "format": "{}",
-    "exec": "/home/alostora/.config/waybar/scripts/prayerTimes.py",
+    "exec": "$HOME/.config/waybar/scripts/prayerTimes.py",
     "interval": 60,
     "escape": true
   },
@@ -212,11 +213,12 @@
   },
 
   "tray": {
-    "icon-size": 21,
-    // "spacing": 10,
+    "icon-size": 15,
+    "spacing": 2,
     "icons": {
         "blueman": "bluetooth",
         // "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
+        "vesktop": "$HOME/.config/waybar/trayIcons/discord.jpeg",
     }
   },
 

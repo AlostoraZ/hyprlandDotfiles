@@ -2,17 +2,15 @@
 
 * {
   border: none;
-  border-radius: 0;
+  /* border-radius: 3; */
   font-family:  "BigBlueTermPlus Nerd Font Propo",JetBrainsMonoNerdFontPropo, "OpenSans", FiraCode Nerd Font Propo;
   font-size: 13px;
-  min-height: 13px;
-  /* margin-top: 0px; */
-  margin: 0px 3px 0px 3px;
+  min-height: 0;
+  /* margin: 0px 3px 0px 3px; */
 }
 
 window#waybar {
-  /* background: ; */
-  background-color: @secondary_container;
+  background: transparent;
   border-bottom: none;
   color: #ffffff;
   transition-property: background-color;
@@ -26,13 +24,14 @@ window#waybar.hidden {
 #workspaces {
   background-color: @secondary_container;
   padding: 4px 2px;
-  margin: 3 0
+  border-radius: 3;
 }
 
 #workspaces button {
   transition: 0.2s ease-in-out;
   background: @secondary_container;
-  color: @inverse_surface;
+  color: @on_secondary_container;
+  margin: 0 3;
 }
 
 #workspaces button.focused {
@@ -71,24 +70,64 @@ window#waybar.hidden {
 #tray,
 #mode,
 #idle_inhibitor {
-  padding: 0 3px;
+  padding: 0 10px;
   /* margin: 0 3px; */
   background-color: @secondary_container;
   color: @on_secondary_container;
 }
 
-#custom-wake {
-  padding: 0px 4px;
+#tray {
+  padding: 0 10px;
+  margin: 0 5px;
+  border-radius: 3px;
+  background-color: @secondary_container;
+  color: @on_secondary_container;
 }
 
-#custom-arch {
-  padding: 0px 4px;
+#power-profiles-daemon {
+  padding: 0px 12px;
+  /* margin: 0 0 0 3; */
+  /* border-top-right-radius: 0px; */
+  /* border-bottom-right-radius: 0px; */
+}
+
+#custom-wake {
+  padding: 0px 12px;
+  /* margin: 0 0; */
+  /* border-radius: 0; */
+}
+
+#custom-update {
+  border-top-left-radius: 3;
+  border-bottom-left-radius: 3;
+
 }
 
 #custom-swaync {
-  padding: 0px 4px;
+  padding: 0px 12px;
+  /* margin: 0 3 0 0; */
+  /* border-top-left-radius: 0px; */
+  /* border-bottom-left-radius: 0px; */
+  border-top-right-radius: 3;
+  border-bottom-right-radius: 3;
 }
 
+#custom-pipe {
+  padding: 0px 0px;
+  /* margin: 0 0; */
+  /* border-radius: 0; */
+}
+
+#custom-arch {
+  padding: 0px 12px;
+  border-top-left-radius: 3;
+  border-bottom-left-radius: 3;
+}
+
+#custom-prayerTime {
+  border-top-right-radius: 3;
+  border-bottom-right-radius: 3;
+}
 
 #power-profiles-daemon.performance {
   background-color: @on_surface;
