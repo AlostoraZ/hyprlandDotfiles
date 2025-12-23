@@ -170,7 +170,7 @@ class MediaWatcherStatusBuilder:
         tooltip = []
         player = self.watcher.player
 
-        if player == None:
+        if player is None:
             return None
 
         if player.status in ['playing', 'paused']:
@@ -190,7 +190,7 @@ class MediaWatcherStatusBuilder:
         max_width = max_width - len(separator)
         player = self.watcher.player
 
-        if player == None:
+        if player is None:
             return None
 
         if player.title and player.artist:

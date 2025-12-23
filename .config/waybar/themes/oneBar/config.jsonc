@@ -13,9 +13,11 @@
     "clock",
     "custom/pipe",
     "custom/prayerTime",
+    "custom/pipe",
+    "mpris",
   ],
   "modules-center": [    
-    "hyprland/workspaces"
+    "hyprland/workspaces",
   ],
   "modules-right": [
     "custom/update",
@@ -78,13 +80,20 @@
     "on-click": "swaync-client -t"
   },
 
- "custom/waybar-media": {
-    "return-type": "json",
-    "exec": "media-player.py status",
-    "on-click": "media-player.py playpause",
-    "on-scroll-up": "media-player.py previous",
-    "on-scroll-down": "media-player.py next",
-    "escape": true
+  "mpris": {
+	"format": "{dynamic}",
+	"format-paused": "<i>{dynamic}</i>",
+    "tooltip-format": "{player}: {status} {dynamic} {position}/{length}",
+    "dynamic-order": ["title"],
+    "dynamic-len": 15,
+	"player-icons": {
+		"default": "▶",
+		"mpv": "🎵"
+	},
+	"status-icons": {
+		"paused": "⏸"
+	},
+	"ignored-players": ["firefox"]
   },
 
   "hyprland/workspaces": {
@@ -226,7 +235,7 @@
 
   "memory": {
     "interval": 30,
-    "format": "{}% ",
+    "format": "{}% ",
     "max-length": 10,
     "on-click": "kitty --title \"bpytop\" --hold bpytop"
   },

@@ -22,7 +22,7 @@ baseUrl = "https://api.aladhan.com/v1/timingsByAddress/"
 def getPrayerTimes(currentDate, address):
     url = f"{baseUrl}{currentDate}?address={address}&method={method}"
     response = requests.get(url)
-    if response.status_code == 200:
+    if response.status_code is 200:
         return response.json()
     else:
         print("API error:", response.status_code)
