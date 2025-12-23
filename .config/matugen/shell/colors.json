@@ -1,8 +1,8 @@
 {
-  "wallpaper": "/home/alostora/wallpaper/Evening-Pixel-art.jpg",
+  "wallpaper": "/home/alostora/wallpaper/gruvbox[pixelart].png",
   "alpha": "100",
   "colors": {
-    "color0": "#c4322f",
+    "color0": "#848d32",
     "color1": "",
     "color2": "",
     "color3": "",
@@ -12,11 +12,11 @@
     "color7": "",
     "color8": "",
     "color9": "",
-    "color10": "#ffb4ac",
+    "color10": "#c5cd7a",
     "color11": "",
     "color12": "",
-    "color13": "#73332e",
+    "color13": "#444b04",
     "color14": "",
-    "color15": "#904a44"
+    "color15": "#5c631d"
   }
 }
