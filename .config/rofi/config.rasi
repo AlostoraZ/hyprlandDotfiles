@@ -1,7 +1,7 @@
 //@theme "/home/alostora/.local/share/rofi/themes/rounded-template.rasi"
 
 configuration {
-	modes: "drun,ssh";
+	modes: "drun,ssh,emoji,calc";
 /*	font: "mono 12";*/
 /*	location: 0;*/
 /*	yoffset: 0;*/

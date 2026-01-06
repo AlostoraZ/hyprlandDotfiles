@@ -68,6 +68,8 @@ window#waybar.hidden {
 #pulseaudio,
 #tray,
 #mpris,
+#privacy,
+#submap,
 #mode,
 #idle_inhibitor {
   padding: 0 3px;
@@ -88,6 +90,12 @@ window#waybar.hidden {
   padding: 0px 4px;
 }
 
+#mpris,#privacy,#submap,#tray {
+    border-radius: 3px;
+    margin: 3px 5px;
+    background-color: @surface_bright;
+    color: @on_secondary_container;
+}
 
 #power-profiles-daemon.performance {
   background-color: @on_surface;
@@ -148,4 +156,22 @@ window#waybar.hidden {
 #pulseaudio.muted {
   /* background: #90b1b1; */
   /* color: #2a5c45; */
+}
+
+#right {
+    /* background-color: @secondary_container; */
+    /* border-radius: 3px; */
+}
+
+#right *{
+    /* background-color: transparent; */
+}
+
+#left {
+    /* background-color: @secondary_container; */
+    /* border-radius: 3px; */
+}
+
+#left *{
+    /* background-color: transparent; */
 }

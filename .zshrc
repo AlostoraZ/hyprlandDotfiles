@@ -1,30 +1,87 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+# --- 1. ZINIT BOOTSTRAP ---
+# Define the directory where Zinit will live
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
-# Path to your Oh My Zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
-# eval "$(oh-my-posh init zsh --config https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/bubbles.omp.json)"
-# eval "$(oh-my-posh init zsh --config )"
-eval "$(oh-my-posh init zsh --config /home/alostora/.config/oh-my-posh/themes/json/json.omp.json)"
+# Download Zinit if it's not already there
+if [ ! -d "$ZINIT_HOME" ]; then
+    mkdir -p "$(dirname "$ZINIT_HOME")"
+    git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+fi
 
-# Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+source "${ZINIT_HOME}/zinit.zsh"
 
-source $ZSH/oh-my-zsh.sh
+# --- 2. THEME (INSTANT LOAD) ---
+# Load Powerlevel10k first so your terminal looks ready immediately
+# zinit ice depth=1; zinit light romkatv/powerlevel10k
 
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-export PATH="$HOME/.cargo/bin:$PATH"
+# Load p10k configuration if it exists
+# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+
+eval "$(oh-my-posh init zsh --config $HOME/.config/oh-my-posh/themes/custom/zen.toml)"
+
+# --- 3. HISTORY SETTINGS ---
+HISTFILE=~/.zsh_history
+HISTSIZE=5000
+SAVEHIST=5000
+setopt SHARE_HISTORY      # Share history between terminal windows
+setopt HIST_IGNORE_DUPS   # Don't record same command twice
+setopt hist_ignore_space
+bindkey -e                # Use Emacs keybindings (Standard)
+
+
+
+eval "$(fzf --zsh)"
+
+# --- 4. PLUGINS (TURBO MODE) ---
+# These load in the background (0 seconds after prompt appears)
+zinit wait lucid for \
+    atinit"zicompinit; zicdreplay" \
+        zsh-users/zsh-completions \
+    atload"_zsh_autosuggest_start" \
+        zsh-users/zsh-autosuggestions \
+    OMZL::git.zsh \
+    OMZP::git \
+    Aloxaf/fzf-tab \
+    OMZP::sudo \
+    OMZP::archlinux \
+    OMZP::command-not-found \
+    zdharma-continuum/fast-syntax-highlighting
+
+# History Substring Search (needs specific atload for keybindings)
+zinit ice wait"0" lucid atload'
+    bindkey "^[[A" history-substring-search-up;
+    bindkey "^[[B" history-substring-search-down;
+    zicdreplay'
+zinit light zsh-users/zsh-history-substring-search
+
+
+
+bindkey '^p' history-search-backward
+bindkey '^n' history-search-forward
+
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+zstyle ':completion:*' menu no
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -a --group-directories-first --icons=auto --color=always $realpath'
+zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'eza -a --group-directories-first --icons=auto --color=always $realpath'
+# Universal preview: shows file content or directory listing
+zstyle ':fzf-tab:complete:*' fzf-preview \
+  'if [ -d $realpath ]; then eza -a --group-directories-first --icons=auto --color=always $realpath; else bat --color=always --line-range :200 $realpath; fi'
+
+
+
+
+
+
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="/usr/.local/bin:$PATH"
 
 export PATH="$HOME/.config/waybar/scripts:$PATH"
 export PATH="$HOME/.config/hypr/scripts:$PATH"
+
+# Manpager
+export MANPAGER="nvim +Man!"
 
 #fastfetch -c /usr/share/fastfetch/presets/examples/13.jsonc
 
@@ -35,7 +92,7 @@ alias y='yay --color auto'
 
 # File System
 # alias ls='ls -a --color=auto'
-alias ls='eza -a --group-directories-first --icons=auto'
+alias ls='eza -a --group-directories-first --icons=auto --color=always'
 alias lt='eza --tree --level=2 --long --icons --git'
 alias fzf="fzf-open --preview 'bat --style=numbers --color=always {}'"
 
@@ -63,24 +120,20 @@ alias hibernate='systemctl hibernate'
 # start conda
 alias conda-init='source ~/anaconda3/etc/profile.d/conda.sh'
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-# __conda_setup="$('/home/alostora/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-# if [ $? -eq 0 ]; then
-#     eval "$__conda_setup"
-# else
-#     if [ -f "/home/alostora/anaconda3/etc/profile.d/conda.sh" ]; then
-#         . "/home/alostora/anaconda3/etc/profile.d/conda.sh"
-#     else
-#         export PATH="/home/alostora/anaconda3/bin:$PATH"
-#     fi
-# fi
-# unset __conda_setup
-# <<< conda initialize <<<
+
+# nvim-remote
+
+if [ -n "$NVIM_LISTEN_ADDRESS" ]; then
+    alias nvim=nvr -cc split --remote-wait +'set bufhidden=wipe'
+fi
+
+if [ -n "$NVIM_LISTEN_ADDRESS" ]; then
+    export VISUAL="nvr -cc split --remote-wait +'set bufhidden=wipe'"
+    export EDITOR="nvr -cc split --remote-wait +'set bufhidden=wipe'"
+else
+    export VISUAL="nvim"
+    export EDITOR="nvim"
+fi
 
 
-## [Completion]
-## Completion scripts setup. Remove the following line to uninstall
-[[ -f /home/alostora/.dart-cli-completion/zsh-config.zsh ]] && . /home/alostora/.dart-cli-completion/zsh-config.zsh || true
-## [/Completion]
-
+eval "$(zoxide init --cmd cd zsh)"

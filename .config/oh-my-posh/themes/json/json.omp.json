@@ -21,15 +21,6 @@
           "style": "diamond",
           "template": "<#ffffff> \u26A1 </><b>{{ .HEAD }}</b>",
           "type": "git"
-        },
-        {
-          "foreground": "#ff0000",
-          "properties": {
-            "git_icon": ""
-          },
-          "style": "diamond",
-          "template": "<#ff0000> \u25C9</>",
-          "type": "text"
         }
       ],
       "type": "prompt"
