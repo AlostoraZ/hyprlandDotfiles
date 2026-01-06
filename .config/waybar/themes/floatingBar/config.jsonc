@@ -1,0 +1,357 @@
+// -*- mode: jsonc -*-
+{
+  // "layer": "top", // Waybar at top layer
+  // "position": "bottom", // Waybar position (top|bottom|left|right)
+  // "height": 30, // Waybar height (to be removed for auto height)
+  // "width": 1280, // Waybar width
+  "margin-top": 7,
+  "margin-bottom": -3,
+  "margin-left": 9,
+  "margin-right": 9,
+  "spacing": 0, // Gaps between modules (4px)
+  // Choose the order of the modules
+
+  "modules-left": [
+        "group/left",
+        "mpris",
+        "tray",
+        "hyprland/submap",
+    ],
+    "modules-center": [
+        "hyprland/workspaces",
+    ],
+    "modules-right": [
+        "privacy",
+        "group/right",
+    ],
+
+    "hyprland/submap": {
+        "format": "{}",
+        "max-length": 8,
+        "tooltip": false
+    },
+
+    "group/hardware": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 500,
+            "children-class": "not-hardware",
+            "transition-left-to-right": false,
+        },
+        "modules": [
+            "memory",
+            "temperature",
+            "custom/pipe",
+            "cpu",
+            "custom/pipe",
+        ]
+    },
+
+    "group/connection": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 500,
+            "children-class": "not-network",
+            "transition-left-to-right": false,
+        },
+        "modules": [
+            "network",
+            "bluetooth",
+            "custom/pipe",
+        ]
+    },
+
+    "group/right": {
+        "orientation": "inherit",
+        "modules": [
+        "custom/update",
+        "custom/pipe",
+        "pulseaudio",
+        "custom/pipe",
+        "group/connection",
+        "custom/pipe",
+        "backlight",
+        "custom/pipe",
+        "battery",
+        "custom/pipe",
+        "group/hardware",
+        "custom/pipe",
+        "power-profiles-daemon",
+        "custom/pipe",
+        "idle_inhibitor",
+        "custom/pipe",
+        "custom/swaync",
+        ]
+    },
+
+    "group/left": {
+        "orientation": "inherit",
+        "modules": [
+            "custom/arch",
+            "custom/pipe",
+            "clock",
+            "custom/pipe",
+            "custom/prayerTime",
+        ]
+    },
+
+    "custom/pipe": {
+        "format": "|"
+    },
+
+    "custom/prayerTime": {
+        "format": "{}",
+        "interval": 60,
+        "escape": true,
+        "exec": "$HOME/.config/waybar/scripts/prayerTimes.py",
+    },
+
+    "custom/update": {
+        "format": "󰅢 {}",
+        "interval": "once",
+        "exec": "checkupdates-with-aur | wc -l",
+        "on-click": "kitty --title \"update\" --hold yay -Syu --noconfirm --needed",
+        "on-click-right": "kitty --title \"update\" --hold pacseek",
+        "signal": 8,
+        "tooltip-format": "{} updates available",
+    },
+
+
+    "custom/wake": {
+        "format": "",
+        "format-alt": "󰾪",
+        "on-click": "$HOME/.config/hypr/scripts/hypridle-toggle.sh",
+    },
+
+    "custom/arch": {
+        "format": "󰣇",
+        "on-click": "$HOME/.config/waybar/scripts/powerMenu.sh",
+    },
+    "custom/swaync": {
+        "format": "󰂜",
+        "on-click": "swaync-client -t"
+    },
+
+    "mpris": {
+        "format": "{dynamic}",
+        "format-paused": "<i>{dynamic}</i>",
+        "tooltip-format": "{player}: {status} {dynamic} {position}/{length}",
+        "dynamic-order": ["title"],
+        // "dynamic-len": 15,
+        "title-len": 15,
+        "player-icons": {
+            "default": "▶",
+            "mpv": "🎵"
+        },
+        "status-icons": {
+            "paused": "⏸"
+        },
+        "ignored-players": ["firefox"]
+    },
+
+    "privacy": {
+        "icon-spacing": 4,
+        "icon-size": 18,
+        "transition-duration": 250,
+        "modules": [
+            {
+                "type": "screenshare",
+                "tooltip": true,
+                "tooltip-icon-size": 24
+            },
+            // {
+            //     "type": "audio-out",
+            //     "tooltip": true,
+            //     "tooltip-icon-size": 24
+            // },
+            {
+                "type": "audio-in",
+                "tooltip": true,
+                "tooltip-icon-size": 24
+            }
+        ],
+        "ignore-monitor": true,
+        "ignore": [
+            {
+                "type": "audio-in",
+                "name": "cava"
+            },
+            {
+                "type": "screenshare",
+                "name": "obs"
+            },
+        ]
+    },
+
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        // "format-icons": {
+        //     "1": "",
+        //     "2": "",
+        //     "3": "",
+        //     "4": "",
+        //     "5": "",
+        // },
+        "persistent-workspaces": {
+            "*": 5, // 5 workspaces by default on every monitor
+        }
+    },
+    //
+    //   "hyprland/workspaces": {
+    //     "format": "{icon}:{windows}",
+    //     "format-window-separator": "",
+    //     "workspace-taskbar": {
+    //         "enable": true,
+    //         "update-active-window": true,
+    //         "format": "{icon}",
+    //         "icon-size": 18,
+    //         "on-click-window": "$HOME/.config/waybar/scripts/focus-window.sh {address} {button}"
+    //     }
+    // },
+    "clock": {
+        // "timezone": "America/New_York",
+        "format": "{:%I:%M %p}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:%I:%M %p %Y-%m-%d}"
+    },
+    "backlight": {
+        // "device": "acpi_video1",
+        "format": "{percent}% {icon}",
+        "format-icons": [
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ]
+    },
+    "battery": {
+        "states": {
+          // "good": 95,
+          "warning": 30,
+          "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-full": "{capacity}% {icon}",
+        "format-charging": "{capacity}% 󰂄",
+        "format-plugged": "{capacity}% ",
+        "format-alt": "{time} {icon}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": [
+          "",
+          "",
+          "",
+          "",
+          ""
+        ]
+    },
+    "power-profiles-daemon": {
+        "format": "{icon}",
+        "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+        "tooltip": true,
+        "format-icons": {
+          "default": "",
+          "performance": "",
+          "balanced": "",
+          "power-saver": ""
+        }
+    },
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "format-wifi": "{essid} {icon}",
+        "format-icons": [
+          "󰤯",
+          "󰤟",
+          "󰤢",
+          "󰤥",
+          "󰤨"
+        ],
+        "format-ethernet": "",
+        "tooltip-format": "{ipaddr}/{cidr}",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "󰤭",
+        //"format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "on-click": "hyprctl dispatch exec \"kitty --title 'nmtui' nmtui\""
+    },
+
+    "bluetooth": {
+        // "controller": "controller1", // specify the alias of the controller if there are more than 1 on the system
+        "format": "",
+        "format-disabled": "󰂲", // an empty format will hide the module
+        "format-connected": " {num_connections} connected",
+        "tooltip-format": "{controller_alias}\t{controller_address}",
+        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+        "on-click": "hyprctl dispatch exec blueman-manager",
+        "on-click-right": "hyprctl dispatch exec rfkill toggle bluetooth"
+    },
+
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{volume}% {icon}",
+        "format-bluetooth": "{volume}% {icon}",
+        "format-bluetooth-muted": " {icon}",
+        "format-muted": "",
+        "format-source-muted": "",
+        "format-icons": {
+          "headphone": "",
+          "hands-free": "",
+          "headset": "",
+          "phone": "",
+          "portable": "",
+          "car": "",
+          "default": [
+            "",
+            "",
+            ""
+          ]
+        },
+        "on-click": "pavucontrol"
+    },
+
+    "tray": {
+        "icon-size": 15,
+        "spacing": 4,
+        "icons": {
+            "blueman": "bluetooth",
+            // "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
+            "vesktop": "/home/alostora/.config/waybar/trayIcons/discord.jpeg",
+        },
+        "show-passive-items": false,
+    },
+
+     "temperature": {
+        // "thermal-zone": 0,
+        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        // "critical-threshold": 80,
+        // "format-critical": "{temperatureC}°C ",
+        "format": "{temperatureC}°C "
+    },
+
+    "cpu": {
+        "interval": 10,
+        "format": "{}% ",
+        "max-length": 10,
+        "on-click": "kitty --title \"btop\" --hold btop"
+    },
+
+    "memory": {
+        "interval": 30,
+        "format": "{}% ",
+        "max-length": 10,
+        "on-click": "kitty --title \"btop\" --hold btop"
+    },
+
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": "󰾪"
+        }
+    },
+}

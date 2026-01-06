@@ -1,0 +1,14 @@
+# --- Default Stow Ignores (Must be included manually now) ---
+.git
+.gitignore
+LICENSE
+README.*
+
+# --- Your Specific Conflicts ---
+# Ignore the Tmux plugin files that already exist
+.config/tmux/.tmux/plugins/*
+
+# Ignore the GTK absolute symlink files
+.config/gtk-4.0/assets
+.config/gtk-4.0/gtk-dark.css
+.config/gtk-4.0/gtk.css
