@@ -1,2 +1,2 @@
 #!/bin/zsh
-hyprctl dispatch exec /home/alostora/.config/hypr/scripts/wlogout.sh
+hyprctl dispatch exec /home/$USER/.config/hypr/scripts/wlogout.sh

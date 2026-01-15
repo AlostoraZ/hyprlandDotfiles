@@ -1,4 +1,4 @@
-//@theme "/home/alostora/.local/share/rofi/themes/rounded-template.rasi"
+//@theme "/home/arch/.local/share/rofi/themes/rounded-template.rasi"
 
 configuration {
 	modes: "drun,ssh,emoji,calc";
@@ -171,4 +171,6 @@ drun-display-format: "{name}";
 }
 
 
-@theme "/home/alostora/.config/rofi/themes/rounded-template.rasi"
+//@theme "/home/arch/.config/rofi/themes/rounded-template.rasi"
+
+@theme "/home/arch/.config/rofi/themes/rounded-template.rasi"
