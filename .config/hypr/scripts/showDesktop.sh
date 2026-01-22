@@ -9,7 +9,7 @@ if [ -s "$TMP_FILE-$CURRENT_WORKSPACE" ]; then
 
   for address in "${ADDRESS_ARRAY[@]}"
   do
-    CMDS+="dispatch movetoworkspacesilent name:$CURRENT_WORKSPACE,address:$address;"
+    CMDS+="dispatch movetoworkspacesilent name:$CURRENT_WORKSPACE,address:$address;dispatch cyclenext"
   done
 
   hyprctl --batch "$CMDS"
