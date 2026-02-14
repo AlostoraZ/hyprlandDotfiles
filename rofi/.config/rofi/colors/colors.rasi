@@ -1,21 +1,21 @@
 * {
     /* Background shades */
-    bg0: #13140d;
-    bg1: #1c1c14;
-    bg2: #202018;
-    bg3: #2a2a22;
+    bg0: #101418;
+    bg1: #181c20;
+    bg2: #1c2024;
+    bg3: #272a2e;
 
     /* Foreground shades */
-    fg0: #e5e3d6;
-    //fg0: #a2d0c1;
-    fg1: #2e3300;
-    fg2: #c8c7b7;
-    fg3: #47483b;
+    fg0: #e0e2e8;
+    //fg0: #d2bfe7;
+    fg1: #003352;
+    fg2: #c2c7cf;
+    fg3: #42474e;
 
     /* Material theme mapping (optional for Waybar modules) */
-    primary: #c5cd7a;
-    secondary: #c7c9a6;
-    tertiary: #a2d0c1;
+    primary: #9acbfa;
+    secondary: #b9c8da;
+    tertiary: #d2bfe7;
     error: #ffb4ab;
-    outline: #929282;
+    outline: #8c9198;
 }

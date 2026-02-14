@@ -1,8 +1,8 @@
 {
-  "wallpaper": "/home/alostora/wallpaper/gruvbox[pixelart].png",
+  "wallpaper": "/home/alostora/wallpaper/earth-from-space.jpg",
   "alpha": "100",
   "colors": {
-    "color0": "#848d32",
+    "color0": "#2275ad",
     "color1": "",
     "color2": "",
     "color3": "",
@@ -12,11 +12,11 @@
     "color7": "",
     "color8": "",
     "color9": "",
-    "color10": "#c5cd7a",
+    "color10": "#9acbfa",
     "color11": "",
     "color12": "",
-    "color13": "#444b04",
+    "color13": "#0a4a72",
     "color14": "",
-    "color15": "#5c631d"
+    "color15": "#2d628b"
   }
 }
